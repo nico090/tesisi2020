@@ -7,19 +7,20 @@ public class Zombie : MonoBehaviour
 {
 
     public Transform player;
+  
+    public Enemy enemy;
 
-    public int vida = 100;
+    public Player pl;
+    private void Start()
+    {
+        pl = FindObjectOfType<Player>();
+    }
 
-    public int dano = 5;
-
-    public float velocidad = 0.01f;
-    
-    
     void Update()
     {
         transform.LookAt(player, Vector3.left);
 
-        transform.Translate(0, 0, velocidad);
+        transform.Translate(0, 0, enemy.velocidadDeMovimiento);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -27,25 +28,34 @@ public class Zombie : MonoBehaviour
         switch (other.tag)
         {
             case "Player":
-                
-                
-                
-                InvokeRepeating(("HacerDano"),1f,1f);
 
-               // StartCoroutine("Dano");
+                InvokeRepeating(("HacerDano"), enemy.velocidadDeAtaque, enemy.velocidadDeAtaque);
+                
+                break;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "Player":
 
+                Invoke("DejarDeHacerDaño", 0f);
+                
                 break;
         }
     }
 
     void HacerDano()
     {
+        pl.vida -= enemy.dano;
 
-        print("verdadero");
-        
-        //hp.player -= dano;
+    }
 
-
+    void DejarDeHacerDaño()
+    {
+        CancelInvoke();
     }
     
     
