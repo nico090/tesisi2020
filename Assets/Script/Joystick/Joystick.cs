@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour
 {
 
@@ -41,12 +41,12 @@ public class Joystick : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition,
             canvas.worldCamera, out pos);
 
-       Vector3 newPos=  canvas.transform.TransformPoint(pos);
+       Vector2 newPos=  canvas.transform.TransformPoint(pos) - posinicial;
        newPos.x = Mathf.Clamp(newPos.x,-radio,radio);
        newPos.y = Mathf.Clamp(newPos.y,-radio,radio);
        
-       transform.position= newPos-posinicial;
-       axis = newPos / radio;
+       transform.localPosition= newPos;
+       //axis = newPos / radio;
 
     }
 
