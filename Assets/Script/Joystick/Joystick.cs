@@ -26,14 +26,16 @@ public class Joystick : MonoBehaviour
     }
     public float AxisHorizontal()
     {
-        
+       
         return axis.x;
+       
     }
     
     public float AxisVertical()
     {
         
         return axis.y;
+        
     }
    public void Drag()
     {
@@ -46,13 +48,14 @@ public class Joystick : MonoBehaviour
        newPos.y = Mathf.Clamp(newPos.y,-radio,radio);
        
        transform.localPosition= newPos;
-       //axis = newPos / radio;
+       axis = newPos / radio;
 
     }
 
 
    public void Drop()
    {
+       axis = new Vector2(0, 0);
        transform.position = posinicial;
 
    }
