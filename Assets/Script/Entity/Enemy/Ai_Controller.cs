@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "New Enemy", menuName = "Enemys")]
 public class Ai_Controller : ScriptableObject
 {
- [SerializeField]   private AbstractAction[] action;
+   
+
+    
+ /*[SerializeField]*/   public AbstractAction[] action;
 
     IEnumerator ThinkRoutine()
     {

@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
-
+[CreateAssetMenu(fileName = "MovePositionAction", menuName = "MovePositionAction")]
 public class MovePositionAction : AbstractAction
 {
+  public float delay = 3f;
     // Start is called before the first frame update
-    void Start()
+   
+    IEnumerator Execute(Transform self, Player PlayerTarget, Vector3 targetLocation)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        Debug.Log("move");
         
+        yield return new WaitForSeconds(delay);
+
     }
+    
 }
