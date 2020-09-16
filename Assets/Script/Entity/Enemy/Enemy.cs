@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Entity
 {
     private float distancePlayer;
 
@@ -11,12 +11,15 @@ public class Enemy : MonoBehaviour
 
     private float attackVelocity;
 
-    private Ai_Controller controller;
+   [SerializeField] private Ai_Controller controller;
 
     IEnumerator Ai()
     {
+        StartCoroutine(controller.ThinkRoutine());
 
-        return null;
+        
+        
+        yield return new WaitForEndOfFrame();
     }
 
     bool Death(bool isAlive)//bool is alive herencia
@@ -32,7 +35,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(Ai());
+
     }
 
     // Update is called once per frame
