@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Agus_Pruebas.unity
+- path: Assets/Scenes/tesis2020.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

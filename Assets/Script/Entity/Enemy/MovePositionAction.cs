@@ -7,14 +7,11 @@ public class MovePositionAction : AbstractAction
 {
   public float delay = 3f;
     // Start is called before the first frame update
-   
-    IEnumerator Execute(Transform self, Player PlayerTarget, Vector3 targetLocation)
+  
+
+    public override IEnumerator Execute(Transform self, Player PlayerTarget, Vector3 targetLocation)
     {
-
-        Debug.Log("move");
         
-        yield return new WaitForSeconds(delay);
-
+        return base.Execute(self, PlayerTarget, targetLocation);
     }
-    
 }

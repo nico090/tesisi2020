@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Vector3 posicion;
     private Rigidbody2D _rigidbody;
     [SerializeField]private float velocidad;
-
+  
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
