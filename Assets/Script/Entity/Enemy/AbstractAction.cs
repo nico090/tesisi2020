@@ -19,7 +19,7 @@ public abstract class AbstractAction : ScriptableObject
         
     }
    
-    public virtual IEnumerator Execute(Transform self, Player PlayerTarget, Vector3 targetLocation)
+    public virtual IEnumerator Execute(/*Transform self, Player PlayerTarget, Vector3 targetLocation*/)
     {
        
         yield return null;

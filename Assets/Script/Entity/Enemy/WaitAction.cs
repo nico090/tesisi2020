@@ -5,7 +5,12 @@ using UnityEngine;
 public class WaitAction : AbstractAction
 {
     // Start is called before the first frame update
-   
+    public override IEnumerator Execute()
+    {
+        Debug.Log("Estoy Esperando");
+        yield return new WaitForSeconds(3);
+        //  return base.Execute(self, PlayerTarget, targetLocation);
+    }
 
     // Update is called once per frame
     void Update()

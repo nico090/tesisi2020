@@ -7,7 +7,7 @@ public class Ai_Controller : ScriptableObject
 {
 
     public int think;
-    
+    public Enemy owner;
 [SerializeField] public AbstractAction[] action;
 
    public IEnumerator ThinkRoutine()
@@ -15,21 +15,16 @@ public class Ai_Controller : ScriptableObject
    
         think=Random.Range(1, 2);
 
-        action[think].Prueba();
+        yield return owner.StartCoroutine(action[think].Execute());
         
         Debug.Log(think);
-        
-        
-        yield return new WaitForEndOfFrame();
-        
-        
     }
    
     
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
 }

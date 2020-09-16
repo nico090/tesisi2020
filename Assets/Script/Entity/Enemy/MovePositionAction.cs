@@ -9,9 +9,10 @@ public class MovePositionAction : AbstractAction
     // Start is called before the first frame update
   
 
-    public override IEnumerator Execute(Transform self, Player PlayerTarget, Vector3 targetLocation)
+    public override IEnumerator Execute()
     {
-        
-        return base.Execute(self, PlayerTarget, targetLocation);
+        Debug.Log("Me Estoy Moviendo");
+      yield return new WaitForSeconds(3);
+      //  return base.Execute(self, PlayerTarget, targetLocation);
     }
 }
