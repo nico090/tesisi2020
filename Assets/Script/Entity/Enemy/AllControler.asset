@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86f678d8240e554eaa89cf691256230, type: 3}
   m_Name: AllControler
   m_EditorClassIdentifier: 
+  think: 1
+  owner: {fileID: 0}
   action:
   - {fileID: 11400000, guid: 36ba87543be07d74bbbee2b2bb9ac23c, type: 2}
   - {fileID: 11400000, guid: 54c73b89d1e59204e949ce32cdfe42ee, type: 2}

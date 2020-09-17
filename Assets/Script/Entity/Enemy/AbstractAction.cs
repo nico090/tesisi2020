@@ -11,13 +11,7 @@ public abstract class AbstractAction : ScriptableObject
 
     private bool canBeInterrupted;
     // Start is called before the first frame update
-
-   
-   public void Prueba()
-    {
-        
-        
-    }
+    
    
     public virtual IEnumerator Execute(/*Transform self, Player PlayerTarget, Vector3 targetLocation*/)
     {

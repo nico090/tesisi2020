@@ -6,11 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {   
     [SerializeField]Joystick joystick1;
-    [SerializeField]Joystick joystick2;
+    [SerializeField]JoystickRotate joystick2;
     private Vector3 posicion;
     private Rigidbody2D _rigidbody;
     [SerializeField]private float velocidad;
-  
+    private Vector2 lookVec;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -19,21 +19,33 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move(joystick1.AxisHorizontal(),joystick1.AxisVertical());
-        Apuntar(transform.position.x+joystick2.AxisHorizontal(),transform.position.y+joystick2.AxisVertical());
+       
+       Apuntar(joystick2.AxisHorizontal(), joystick2.AxisVertical());
     }
     
     void Move(float h,float v)
     {
+
+        transform.localPosition += Time.deltaTime * new Vector3(h, v, 0) * 2f;
+        
+
+
+        /*
         posicion.Set(h, v, 0);
  
         posicion= posicion.normalized * (velocidad * Time.deltaTime);
         _rigidbody.MovePosition(transform.position+posicion);
+        */
     }
 
     void Apuntar(float h,float v)
     {
-        Vector2 posApuntar=new Vector2(h,v);
-
-        transform.rotation = new Quaternion(posApuntar.x,posApuntar.y,0,0);
+        lookVec = new Vector2(h,v);
+        
+       
+        transform.LookAt((new Vector2(transform.position.x, transform.position.y) + lookVec));
+        
+        
     }
+    
 }
