@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaitAction : AbstractAction
 {
     // Start is called before the first frame update
-    public override IEnumerator Execute()
+    public override IEnumerator Execute(Enemy owner)
     {
         Debug.Log("Estoy Esperando");
         yield return new WaitForSeconds(3);

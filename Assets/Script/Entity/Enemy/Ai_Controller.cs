@@ -7,30 +7,24 @@ public class Ai_Controller : ScriptableObject
 {
 
     public int think;
-    public Enemy owner;
+    private Enemy owner;
+
+    private float delay = 2;
     
 [SerializeField] public AbstractAction[] action;
 
-   public IEnumerator ThinkRoutine()
-    {    
-        owner = FindObjectOfType<Enemy>();
-
-        think=Random.Range(0, 2);
-
-        Debug.Log(think);
+   public IEnumerator ThinkRoutine(Enemy _owner)
+   {
+        owner = _owner;
         
-        yield return owner.StartCoroutine(action[think].Execute());
-        
-        
-
-       
-    }
+        think = Random.Range(0,2);
+       Debug.Log("prueba");
+        yield return owner.StartCoroutine(action[think].Execute(owner));
+   }
+   
    
     
     // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
+    
 
 }

@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Move(float h,float v)
     {
 
-        transform.localPosition += Time.deltaTime * new Vector3(h, v, 0) * 2f;
+        transform.localPosition +=  new Vector3(h, v, 0) * (Time.deltaTime * 2f);
         
 
 

@@ -13,9 +13,9 @@ public class Enemy : Entity
 
    [SerializeField] private Ai_Controller controller;
 
-    IEnumerator Ai()
+    public IEnumerator Ai()
     {
-        StartCoroutine(controller.ThinkRoutine());
+        StartCoroutine(controller.ThinkRoutine(this));
 
         
         
@@ -35,6 +35,7 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
+        velocity = .5f;
         StartCoroutine(Ai());
 
     }

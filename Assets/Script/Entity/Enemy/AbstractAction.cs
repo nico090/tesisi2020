@@ -13,7 +13,7 @@ public abstract class AbstractAction : ScriptableObject
     // Start is called before the first frame update
     
    
-    public virtual IEnumerator Execute(/*Transform self, Player PlayerTarget, Vector3 targetLocation*/)
+    public virtual IEnumerator Execute(Enemy owner/*Transform self, Player PlayerTarget, Vector3 targetLocation*/)
     {
        
         yield return null;
