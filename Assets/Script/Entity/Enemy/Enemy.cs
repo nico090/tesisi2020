@@ -10,14 +10,15 @@ public class Enemy : Entity
     float attackDistance;
 
     private float attackVelocity;
-
+    
    [SerializeField] private Ai_Controller controller;
 
+   public int Think { get; set; }
     public IEnumerator Ai()
     {
         StartCoroutine(controller.ThinkRoutine(this));
 
-        
+        controller.Think = Think;
         
         yield return new WaitForEndOfFrame();
     }
@@ -35,6 +36,7 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
+        Think = 0;
         velocity = .5f;
         StartCoroutine(Ai());
 

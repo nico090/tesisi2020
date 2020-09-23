@@ -23,6 +23,7 @@ public class MovePositionAction : AbstractAction
      {
                 
          yield return owner.StartCoroutine(owner.Ai());
+         owner.Think = owner.Think + 1;
 
         owner.StopCoroutine(Execute(owner));
      }

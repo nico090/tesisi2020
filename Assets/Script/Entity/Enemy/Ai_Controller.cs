@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ai_Controller : ScriptableObject
 {
 
-    public int think;
+    public int Think { get; set; }
     private Enemy owner;
 
     private float delay = 2;
@@ -17,9 +17,10 @@ public class Ai_Controller : ScriptableObject
    {
         owner = _owner;
         
-        think = Random.Range(0,2);
+        
+     
        Debug.Log("prueba");
-        yield return owner.StartCoroutine(action[think].Execute(owner));
+        yield return owner.StartCoroutine(action[Think].Execute(owner));
    }
    
    
