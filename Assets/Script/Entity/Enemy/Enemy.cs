@@ -10,6 +10,8 @@ public class Enemy : Entity
     float attackDistance;
 
     private float attackVelocity;
+
+    private Rigidbody2D rb;
     
    [SerializeField] private Ai_Controller controller;
 
@@ -36,6 +38,8 @@ public class Enemy : Entity
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        
         Think = 0;
         velocity = .5f;
         StartCoroutine(Ai());
