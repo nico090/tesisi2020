@@ -1,51 +1,58 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "Atack_Dis", menuName = "Atack_Dis")]
 public class Atack_Dis : AbstractAction
 {
+    public float angle;
     private Vector3 direccion;
+
+    private RaycastHit2D hit;
+
+    private Rigidbody2D ownerRb;
+
     public float velocidadDeRotacion = 3f;
 
-   // private Rigidbody2D rb;
-   // public Transform player;
-   public override IEnumerator Execute(Enemy owner)
-   {
-       
+    // private Rigidbody2D rb;
+    // public Transform player;
+    public override IEnumerator Execute(Enemy owner)
+    {
+        ownerRb = owner.GetComponent<Rigidbody2D>();
 
-        direccion = FindObjectOfType<Player>().transform.position - owner.transform.position;
+        do
+        {
+            direccion = FindObjectOfType<Player>().transform.position - owner.transform.position;
 
-        float angle = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Deg2Rad;
+            direccion.Normalize();
+            
+            //Debug.Log(direccion);
 
-        owner.GetComponent<Rigidbody2D>().rotation = angle;
-        
-        
-        
-        
-        
-        
-        //owner.GetComponent<Rigidbody2D>().MoveRotation(Mathf.LerpAngle((owner.transform.position,direccion,3f * Time.deltaTime));
-        Debug.Log(direccion);
-        
-        
-        /*
-        direccion = Quaternion.LookRotation(FindObjectOfType<Player>().transform.position - owner.transform.position);
-        owner.transform.rotation = Quaternion.Slerp(direccion, owner.transform.rotation, velocidadDeRotacion * Time.deltaTime);
-        */
-        
-        
-        
-        
-        
-        //owner.transform.rotation = Quaternion.
-        //owner.transform.RotateAround(FindObjectOfType<Player>().transform.position, Vector3.back, 3f * Time.deltaTime);
+            angle = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg - 90f;
 
-        yield return null;
+            ownerRb.rotation = angle;
+
+            hit = Physics2D.Raycast(owner.transform.position, direccion,100f, 1<<9 | 1<<10 );
+
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.name);
+            }
+
+            Debug.DrawRay(owner.transform.position, direccion, Color.red);
+
+           // Debug.Log(angle);
+
+            yield return new WaitForFixedUpdate();
+        } while (hit.collider.gameObject.tag != "Player");
         
+        Debug.Log("termine");
         
-        //owner.StartCoroutine(owner.Ai());
-        //  owner.Think = owner.Think + 1;
+            
+        // yield return owner.StartCoroutine(owner.Ai());
+        // owner.Think = owner.Think + 1;
+
+        // Debug.Log(direccion);
+
+        //yield return new WaitForFixedUpdate();
     }
-    
 }
