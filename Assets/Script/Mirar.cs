@@ -27,7 +27,7 @@ public class Mirar : MonoBehaviour
 
         rb.rotation = angle;
         
-        Debug.Log(direccion);
+       
         
         
     }

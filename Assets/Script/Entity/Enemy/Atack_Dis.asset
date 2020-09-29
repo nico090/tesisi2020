@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2614cdf3f2ab44294ef7ee9b65c152, type: 3}
   m_Name: Atack_Dis
   m_EditorClassIdentifier: 
+  angle: -58.17114
+  velocidadDeRotacion: 3
+  arrow: {fileID: 7658796002250696202, guid: 092e7b845feb99546be2ab61364b681a, type: 3}
