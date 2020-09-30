@@ -49,9 +49,10 @@ Transform playerTransform;
             yield return new WaitForFixedUpdate();
         } while (hit.collider.gameObject.tag != "Player");
 
+        
         Instantiate(arrow , owner.transform.position, owner.transform.rotation);
         yield return owner.StartCoroutine(owner.Ai());
-        owner.Think = owner.Think + 1;
+        owner.Think = Random.Range(0,3);
 
         owner.StopCoroutine(Execute(owner));
 

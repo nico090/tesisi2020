@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : Entity
 {
+   
     private float distancePlayer;
 
     float attackDistance;
@@ -39,8 +41,8 @@ public class Enemy : Entity
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        
-        Think = 0;
+
+        Think = 0;//Random.Range(0,3);
         velocity = .5f;
         StartCoroutine(Ai());
 
@@ -50,5 +52,11 @@ public class Enemy : Entity
     void Update()
     {
         
+    }
+
+   public void Shoot()
+    {
+        
+       Debug.Log(gameObject.name+ "Dispare");
     }
 }
