@@ -42,7 +42,7 @@ public class Enemy : Entity
     {
         rb = GetComponent<Rigidbody2D>();
 
-        Think = 0;//Random.Range(0,3);
+        
         velocity = .5f;
         StartCoroutine(Ai());
 
@@ -56,6 +56,7 @@ public class Enemy : Entity
 
    public void Shoot()
     {
+        
         
        Debug.Log(gameObject.name+ "Dispare");
     }

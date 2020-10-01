@@ -16,13 +16,13 @@ public class Ai_Controller : ScriptableObject
    public IEnumerator ThinkRoutine(Enemy _owner)
    {
         owner = _owner;
-        
-        
+
+        Think = Random.Range(0, 3);
      
      //  Debug.Log("prueba");
         //yield return owner.StartCoroutine(action[Think].Execute(owner));
         
-        owner.Shoot();
+       
         yield return owner.StartCoroutine(action[Think].Execute(owner));
    }
    
