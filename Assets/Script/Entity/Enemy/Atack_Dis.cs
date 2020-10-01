@@ -8,11 +8,17 @@ public class Atack_Dis : AbstractAction
     public float angle;
     private Vector3 direccion;
 
+    private GameObject owner_;
+    
     private RaycastHit2D hit;
 
     private Rigidbody2D ownerRb;
 Transform playerTransform;
+
+    
+
     public float velocidadDeRotacion = 3f;
+    
  [SerializeField] private GameObject arrow;
     // private Rigidbody2D rb;
     // public Transform player;
@@ -20,7 +26,7 @@ Transform playerTransform;
     {
         ownerRb = owner.GetComponent<Rigidbody2D>();
         playerTransform = FindObjectOfType<Player>().transform;
-      
+        owner_ = owner.GetComponent<GameObject>();
         do
         {
             
@@ -45,15 +51,33 @@ Transform playerTransform;
 
            // Debug.Log(angle);
            
+           
+           
 
             yield return new WaitForFixedUpdate();
         } while (hit.collider.gameObject.tag != "Player");
 
-        Instantiate(arrow , owner.transform.position, owner.transform.rotation);
-        yield return owner.StartCoroutine(owner.Ai());
-        owner.Think = owner.Think + 1;
-
-        owner.StopCoroutine(Execute(owner));
+        if (hit.collider.gameObject.tag == "Player")
+        {
+            Object.Instantiate(arrow , owner.transform.position, owner.transform.rotation);
+            
+            yield return owner.StartCoroutine(owner.Ai());
+            
+            owner.Think = owner.Think + 1;
+            
+            owner.StopCoroutine(Execute(owner));
+        }
+        
+        
+        Debug.Log(Random.Range(0,8));
+       // owner.Think = owner.Think + 1;
+       // Object.Instantiate(arrow , owner.transform.position, owner.transform.rotation);
+       // yield return owner.StartCoroutine(owner.Ai());
+       //  owner.Think = owner.Think + 1;
+        
+        
+       
+        //owner.StopCoroutine(Execute(owner));
 
     }
 }

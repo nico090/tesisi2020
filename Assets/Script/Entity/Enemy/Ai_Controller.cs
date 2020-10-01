@@ -19,7 +19,7 @@ public class Ai_Controller : ScriptableObject
         
         
      
-       Debug.Log("prueba");
+       Debug.Log("prueba" + Random.Range(0,8));
         yield return owner.StartCoroutine(action[Think].Execute(owner));
    }
    
