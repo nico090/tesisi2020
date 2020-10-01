@@ -7,14 +7,17 @@ public class MovePositionAction : AbstractAction
 {
   
     // Start is called before the first frame update
-    private GameObject[] positions;
+    private Transform[] positions;
     private int takePosition;
     public override IEnumerator Execute(Enemy owner)
     {
+        positions = FindObjectOfType<PuntosPatrullaje>().positions;
+        takePosition = Random.Range(0,positions.Length);
         
      do
      {
-          takePosition = Random.Range(0, positions.Length);
+        
+         
          
          
         owner.transform.position = Vector3.Lerp(owner.transform.position, positions[takePosition].transform.position,
@@ -27,7 +30,7 @@ public class MovePositionAction : AbstractAction
      {
                 
          yield return owner.StartCoroutine(owner.Ai());
-         owner.Think = owner.Think + 1;
+         owner.Think = Random.Range(0,3);
 
         owner.StopCoroutine(Execute(owner));
      }
