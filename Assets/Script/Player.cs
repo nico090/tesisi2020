@@ -43,7 +43,7 @@ public class Player : Entity
         lookVec = new Vector2(h,v);
         
        
-        transform.LookAt((new Vector2(transform.position.x, transform.position.y) + lookVec));
+        transform.LookAt((new Vector2(transform.position.x, transform.position.y) + lookVec), Vector3.down);
         
         
     }

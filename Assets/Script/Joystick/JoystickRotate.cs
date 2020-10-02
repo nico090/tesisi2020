@@ -11,14 +11,14 @@ public class JoystickRotate : MonoBehaviour
     [SerializeField]private float radio;
     private Vector3 posinicial;
 
-    private Vector2 axis;
+    private Vector3 axis;
     // Start is called before the first frame update
     void Start()
     {
         posinicial = transform.position;
     }
 
-    public Vector2 Axis()
+    public Vector3 Axis()
     {
         return axis;
 
@@ -42,10 +42,13 @@ public class JoystickRotate : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition,
             canvas.worldCamera, out pos);
 
-        Vector2 newPos=  canvas.transform.TransformPoint(pos) - posinicial;
+        Vector3 newPos=  canvas.transform.TransformPoint(pos) - posinicial;
         newPos.x = Mathf.Clamp(newPos.x,-radio,radio);
+       // newPos.y = Mathf.Clamp(newPos.y,-radio,radio);
         newPos.y = Mathf.Clamp(newPos.y,-radio,radio);
-       
+        
+        
+        
         transform.localPosition= newPos;
         axis = newPos / radio;
 
@@ -54,7 +57,7 @@ public class JoystickRotate : MonoBehaviour
 
     public void Drop()
     {
-        axis = new Vector2(0, 0);
+        axis = new Vector3(0, 0, 0);
         transform.position = posinicial;
 
     }
