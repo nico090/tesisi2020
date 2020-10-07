@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Kamikaze : Entity
 {
@@ -13,11 +15,19 @@ public class Kamikaze : Entity
     // Start is called before the first frame update
     void Start()
     {
+        Hp = 70f;
         player = FindObjectOfType<Player>();
         rigidbodyEnem = GetComponent<Rigidbody2D>();
         StartCoroutine(Patrulla());
     }
 
+    private void Update()
+    {
+        if (Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
    
 
