@@ -89,10 +89,26 @@ public class Zombie : Entity
            
        }while(Vector3.Distance(transform.position,player.transform.position)>=.3f);
 
-
-
+       StartCoroutine(Damage());
+       StopCoroutine(Attack());
+       yield return new WaitForEndOfFrame();
    }
-   
+
+
+   private IEnumerator Damage()
+   {
+       do
+       {
+           player.Hp -= .2f;
+
+         print(player.Hp);
+         yield return new WaitForFixedUpdate();
+       } while (Vector3.Distance(transform.position, player.transform.position) <= .3f);
+
+       StartCoroutine(Localizar());
+       StopCoroutine(Damage());
+       yield return new WaitForEndOfFrame();
+   }
 }
 
 
