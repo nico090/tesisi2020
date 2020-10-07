@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    private float hp;
+    public float Hp { get; set; }
 
     private bool iSAlive;
 

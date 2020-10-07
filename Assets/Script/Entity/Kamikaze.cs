@@ -1,12 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
-using UnityEngine.XR.WSA;
 
-
-public class Zombie : Entity
-{     Player player;
+public class Kamikaze : Entity
+{
+  Player player;
     [SerializeField]private Transform[] positions;
 
     private float angle;
@@ -21,10 +19,7 @@ public class Zombie : Entity
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 
    private  IEnumerator Patrulla()
    {
@@ -97,18 +92,18 @@ public class Zombie : Entity
 
    private IEnumerator Damage()
    {
-       do
-       {
-           player.Hp -= .2f;
-
+     if(Vector3.Distance(transform.position, player.transform.position) <= .3f)
+       { 
+           player.Hp -= 5f;
+           Destroy(gameObject);
          print(player.Hp);
-         yield return new WaitForFixedUpdate();
-       } while (Vector3.Distance(transform.position, player.transform.position) <= .3f);
-
+         
        StartCoroutine(Localizar());
        StopCoroutine(Damage());
+       
        yield return new WaitForEndOfFrame();
+       } 
+
+       
    }
 }
-
-
