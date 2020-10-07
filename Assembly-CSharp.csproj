@@ -58,19 +58,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Bala.cs" />
      <Compile Include="Assets\Script\Botones.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\AbstractAction.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\Ai_Controller.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\Atack_Dis.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\Enemy.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\InvocadorEnemigos.cs" />
+     <Compile Include="Assets\Script\DisparoPlayer.cs" />
      <Compile Include="Assets\Script\Entity\Enemy\MovePositionAction.cs" />
-     <Compile Include="Assets\Script\Entity\Enemy\WaitAction.cs" />
+     <Compile Include="Assets\Script\Entity\Enemy\PuntosPatrullaje.cs" />
      <Compile Include="Assets\Script\Entity\Entity.cs" />
+     <Compile Include="Assets\Script\Entity\Zombie.cs" />
      <Compile Include="Assets\Script\Joystick\Joystick.cs" />
      <Compile Include="Assets\Script\Joystick\JoystickRotate.cs" />
      <Compile Include="Assets\Script\Mirar.cs" />
      <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\Points.cs" />
+     <Compile Include="Assets\Script\enemiesBullets\EnemyArrow.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/franc/Desktop/Celda/tesisi2020/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

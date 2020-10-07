@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
-[CreateAssetMenu(fileName = "MovePositionAction", menuName = "MovePositionAction")]
-public class MovePositionAction : AbstractAction
-{
-  
+//[CreateAssetMenu(fileName = "MovePositionAction", menuName = "MovePositionAction")]
+// public class MovePositionAction : AbstractAction
+//{
+  /*
     // Start is called before the first frame update
     private Transform[] positions;
     private int takePosition;
@@ -37,4 +37,5 @@ public class MovePositionAction : AbstractAction
      
     
     }
-}
+    */
+//}
