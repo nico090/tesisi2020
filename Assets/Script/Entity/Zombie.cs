@@ -15,6 +15,8 @@ public class Zombie : Entity
     // Start is called before the first frame update
     void Start()
     {
+        Hp = 80f;
+        
         player = FindObjectOfType<Player>();
         rigidbodyEnem = GetComponent<Rigidbody2D>();
         StartCoroutine(Patrulla());
@@ -23,7 +25,10 @@ public class Zombie : Entity
     // Update is called once per frame
     void Update()
     {
-        
+        if (Hp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
    private  IEnumerator Patrulla()
