@@ -72,6 +72,7 @@
     <Compile Include="Assets\Script\Entity\Zombie.cs" />
     <Compile Include="Assets\Script\Joystick\Joystick.cs" />
     <Compile Include="Assets\Script\Mirar.cs" />
+    <Compile Include="Assets\Script\Player.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -11,12 +11,12 @@ public class Player : Entity
     private Rigidbody2D _rigidbody;
     [SerializeField] private float velocidad;
     private Vector2 lookVec;
-    
+
 
     private void Start()
     {
-        
-        
+
+
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -66,16 +66,15 @@ public class Player : Entity
 
             Vector2 playerToAxis = axis - position;
             playerToAxis = playerToAxis.normalized;
-            float angle = Mathf.Atan2(playerToAxis.y, playerToAxis.x) * Mathf.Rad2Deg -90;
+            float angle = Mathf.Atan2(playerToAxis.y, playerToAxis.x) * Mathf.Rad2Deg - 90;
 
             _rigidbody.rotation = angle;
-            
+
         }
 
-        
-       
+
+
 
 
     }
 }
-
